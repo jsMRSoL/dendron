@@ -15,5 +15,11 @@
           package = pkgs.catppuccin-qt5ct;
         };
       };
+
+      home.file."Xresources" = {
+        enable = true;
+        source = ./Xresources;
+        target = ".Xresources";
+      };
     };
 }

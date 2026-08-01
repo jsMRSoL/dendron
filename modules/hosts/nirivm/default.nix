@@ -3,7 +3,9 @@
     modules = [
       self.nixosModules.bluetooth
       self.nixosModules.coreSettings
+      self.nixosModules.commandline
       self.nixosModules.garbageCollection
+      self.nixosModules.hyprland
       self.nixosModules.nfs
       self.nixosModules.sddm
       self.nixosModules.sound

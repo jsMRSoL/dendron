@@ -1,9 +1,8 @@
 {
-  flake.homeModules.commandline =
+  flake.nixosModules.commandline =
     { pkgs, ... }:
     {
-
-      home.packages = with pkgs; [
+      environment.systemPackages = with pkgs; [
         aspell
         aspellDicts.en
         bacon
@@ -19,6 +18,7 @@
         fzf
         htop
         imagemagick
+        jq
         lazygit
         ledger
         libnotify
@@ -26,8 +26,6 @@
         mprocs
         mpv
         mupdf
-        # neovim
-        # nixvim.packages.x86_64-linux.default
         ncdu
         pandoc
         papirus-icon-theme
@@ -49,11 +47,5 @@
         xrdb
         zip
       ];
-
-      home.file."Xresources" = {
-        enable = true;
-        source = ./Xresources;
-        target = ".Xresources";
-      };
     };
 }
