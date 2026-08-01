@@ -1,0 +1,167 @@
+// -*- mode: jsonc -*-
+{
+  // "layer": "top", // Waybar at top layer
+  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  "height": 32, // Waybar height (to be removed for auto height)
+  "spacing": 4, // Gaps between modules (4px)
+  // Choose the order of the modules
+  "modules-left": [
+    "hyprland/language",
+    "pulseaudio",
+    "custom/backlight",
+    "hyprland/submap",
+    "idle_inhibitor",
+    "bluetooth",
+  ],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "tray",
+    "network",
+    "cpu",
+    "disk",
+    "memory",
+    "temperature",
+    "battery",
+    "clock",
+    "custom/power",
+  ],
+  // Modules configuration
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "persistent-workspaces": {
+      "*": 6,
+    },
+    "format": " {icon} ",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": "",
+    },
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "",
+    },
+  },
+  "hyprland/language": {
+    "format": " {}",
+    "keyboard-name": "usb-hid-keyboard",
+  },
+  "hyprland/submap": {
+    "format": " {}",
+    "max-length": 10,
+    "always-on": true,
+    "default-submap": "global",
+    "tooltip": false,
+  },
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10,
+  },
+  "bluetooth": {
+  // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+  //"format": " {status}",
+  "format-disabled": "", // an empty format will hide the module
+  "format-off": "", // an empty format will hide the module
+  "format-on": "", // an empty format will hide the module
+  "format-connected": " {num_connections}",
+  "on-click": "blueman-manager",
+  "tooltip-format": "{controller_alias}\t{controller_address}",
+  "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+  "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+  "clock": {
+    "timezone": "United_Kingdom/London",
+    "tooltip-format": "<tt><big>{calendar}</big></tt>",
+    "format-alt": "{:%Y-%m-%d}",
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false,
+    "on-click": "foot -e htop",
+  },
+  "memory": {
+    "format": "{}% ",
+    "on-click": "foot -e htop",
+  },
+  "disk": {
+    "interval": 30,
+    "format": "{percentage_used}% ",
+    "unit": "GB",
+    "path": "/",
+    "on-click": "foot -e ncdu /mnt/data",
+    "on-click-right": "foot -e ncdu /home/simon",
+  },
+  "temperature": {
+    // "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C {icon}",
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""],
+  },
+  "custom/backlight": {
+    "format": "{icon} {percentage}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "return-type": "json",
+    "exec": "ddcutil getvcp 10 | sed -n 's/^.*current value = *\\([0-9][0-9]\\).*/\\1/p' | { read x; echo '{\"percentage\":'${x}'}'; }",
+    "on-scroll-up": "ddcutil setvcp 10 + 5 && pkill -RTMIN+5 waybar",
+    "on-scroll-down": "ddcutil setvcp 10 - 5 && pkill -RTMIN+5 waybar",
+    "on-click": "ddcutil setvcp 10 10 && pkill -RTMIN+5 waybar",
+    "on-click-right": "ddcutil setvcp 10 100 && pkill -RTMIN+5 waybar",
+    "tooltip": false,
+    "exec-on-event": true,
+    "signal": 5,
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""],
+  },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "on-click-right": "foot -e nmtui",
+  },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon} {volume}%  {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " M",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""],
+    },
+    "on-click": "pavucontrol",
+  },
+  "custom/power": {
+    "format": "⏻ ",
+    "tooltip": false,
+    "on-click": "wlogout -s",
+  },
+}

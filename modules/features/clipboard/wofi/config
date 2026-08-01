@@ -1,0 +1,11 @@
+insensitive=true
+height=85%
+width=50%
+key_up=Ctrl-p
+key_down=Ctrl-n
+key_left=Ctrl-h
+key_right=Ctrl-l
+key_expand=Ctrl-y
+allow_images=true
+term=foot
+hide_scroll=true
