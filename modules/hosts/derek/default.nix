@@ -7,6 +7,7 @@
       self.nixosModules.garbageCollection
       self.nixosModules.hyprland
       self.nixosModules.nfs
+      self.nixosModules.postgresql
       self.nixosModules.sddm
       self.nixosModules.sound
       self.nixosModules.systemdBoot
