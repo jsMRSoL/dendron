@@ -13,28 +13,13 @@
           username = "simon";
           homeDirectory = "/home/simon";
           stateVersion = "26.05";
-          packages = [
-            pkgs.blender
-            pkgs.brave
-            pkgs.ddcutil
-            pkgs.filezilla
-            pkgs.gimp3
-            pkgs.handbrake
-            pkgs.insomnia
-            pkgs.mkvtoolnix
-            pkgs.obsidian
-            pkgs.simple-scan
-            pkgs.sqlitebrowser
-            pkgs.zed-editor-fhs
-            pkgs.zotero
-          ];
+          packages = [ ];
         };
 
         imports = [
           self.homeModules.atuin
           self.homeModules.bash
           self.homeModules.clipboard
-          self.homeModules.commandline
           self.homeModules.dunst
           self.homeModules.emacs
           self.homeModules.foot

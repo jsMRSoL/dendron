@@ -43,7 +43,21 @@
       "flakes"
     ];
 
-    environment.systemPackages = [ ];
+    environment.systemPackages = [
+      pkgs.blender
+      pkgs.brave
+      pkgs.ddcutil
+      pkgs.filezilla
+      pkgs.gimp3
+      pkgs.handbrake
+      pkgs.insomnia
+      pkgs.mkvtoolnix
+      pkgs.obsidian
+      pkgs.simple-scan
+      pkgs.sqlitebrowser
+      pkgs.zed-editor-fhs
+      pkgs.zotero
+    ];
 
     system.stateVersion = "26.05"; # Never ever change this. Ever.
   };
