@@ -7,3 +7,7 @@ result-*
 
 # Ignore NixOS interactive test driver history
 **/.nixos-test-history
+
+# Editor config-related files
+modules/features/neovim/nvim/lazy-lock.json
+modules/features/emacs/#simacs.org#
