@@ -29,6 +29,7 @@
         ncdu
         pandoc
         papirus-icon-theme
+        pavucontrol
         pdfannots2json
         ripgrep
         rsync
