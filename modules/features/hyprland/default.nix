@@ -1,19 +1,19 @@
 {
   flake.homeModules.hyprland =
     { pkgs, ... }:
-    let
-      wlogout' = pkgs.wlogout.overrideAttrs (
-        finalAttrs: prevAttrs: {
-          postPatch = prevAttrs.postPatch + ''
-            substituteInPlace layout \
-              --replace-fail "loginctl lock-session" "swaylock"
-
-            substituteInPlace layout \
-              --replace-fail  "loginctl terminate-user \$USER" "uwsm stop"
-          '';
-        }
-      );
-    in
+    # let
+    #   wlogout' = pkgs.wlogout.overrideAttrs (
+    #     finalAttrs: prevAttrs: {
+    #       postPatch = prevAttrs.postPatch + ''
+    #         substituteInPlace layout \
+    #           --replace-fail "loginctl lock-session" "swaylock"
+    #
+    #         substituteInPlace layout \
+    #           --replace-fail  "loginctl terminate-user \$USER" "uwsm stop"
+    #       '';
+    #     }
+    #   );
+    # in
     {
 
       wayland.windowManager.hyprland = {
@@ -60,69 +60,70 @@
 
       };
 
-      services.hyprpaper = {
-        enable = true;
-        settings = {
-          splash = true;
-          splash_offset = 1;
-          preload = [
-            "/home/simon/.nixos/_assets/nixos-wallpaper-catppuccin-mocha.png"
-          ];
-          wallpaper = [
-            {
-              monitor = "eDP-1";
-              path = "/home/simon/.nixos/_assets/nixos-wallpaper-catppuccin-mocha.png";
-              fit_mode = "cover";
-            }
-            {
-              monitor = "";
-              path = "/home/simon/.nixos/_assets/nixos-wallpaper-catppuccin-mocha.png";
-              fit_mode = "cover";
-            }
-          ];
-        };
-      };
+      # services.hyprpaper = {
+      #   enable = true;
+      #   settings = {
+      #     splash = true;
+      #     splash_offset = 1;
+      #     preload = [
+      #       "/home/simon/.nixos/_assets/nixos-wallpaper-catppuccin-mocha.png"
+      #     ];
+      #     wallpaper = [
+      #       {
+      #         monitor = "eDP-1";
+      #         path = "/home/simon/.nixos/_assets/nixos-wallpaper-catppuccin-mocha.png";
+      #         fit_mode = "cover";
+      #       }
+      #       {
+      #         monitor = "";
+      #         path = "/home/simon/.nixos/_assets/nixos-wallpaper-catppuccin-mocha.png";
+      #         fit_mode = "cover";
+      #       }
+      #     ];
+      #   };
+      # };
 
-      services.hypridle = {
-        enable = true;
-        settings = {
-          general = {
-            ignore_dbus_inhibit = false;
-            ignore_systemd_inhibit = false;
-          };
-          listener = [
-            {
-              timeout = 300;
-              on-timeout = "swaylock";
-            }
-            {
-              timeout = 600;
-              on-timeout = "hyprctl dispatch dpms off";
-              on-resume = "hyprctl dispatch dpms on";
-            }
-          ];
-        };
-      };
+      # services.hypridle = {
+      #   enable = true;
+      #   settings = {
+      #     general = {
+      #       ignore_dbus_inhibit = false;
+      #       ignore_systemd_inhibit = false;
+      #     };
+      #     listener = [
+      #       {
+      #         timeout = 300;
+      #         on-timeout = "swaylock";
+      #       }
+      #       {
+      #         timeout = 600;
+      #         on-timeout = "hyprctl dispatch dpms off";
+      #         on-resume = "hyprctl dispatch dpms on";
+      #       }
+      #     ];
+      #   };
+      # };
 
-      programs.swaylock = {
-        enable = true;
-        settings = {
-          image = "${./../../../_assets/nix-wallpaper-binary-black.png}";
-          color = "1e1e2e";
-          font-size = 18;
-          indicator-idle-visible = false;
-          indicator-radius = 100;
-          line-color = "74c7ec";
-          show-failed-attempts = true;
-        };
-      };
+      # programs.swaylock = {
+      #   enable = true;
+      #   settings = {
+      #     image = "${./../../../_assets/nix-wallpaper-binary-black.png}";
+      #     color = "1e1e2e";
+      #     font-size = 18;
+      #     indicator-idle-visible = false;
+      #     indicator-radius = 100;
+      #     line-color = "74c7ec";
+      #     show-failed-attempts = true;
+      #   };
+      # };
 
       home.packages = with pkgs; [
         hyprpaper
         hyprshot
-        swaylock
-        waybar
-        wlogout'
+        hyprpicker
+        # swaylock
+        # waybar
+        # wlogout'
         xdg-desktop-portal-gtk
       ];
 

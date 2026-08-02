@@ -7,7 +7,9 @@
     ];
 
     home-manager = {
+      # https://nix-community.github.io/home-manager/options/nixos/index.html
       useUserPackages = true;
+      backupFileExtension = "backup";
       users.simon = {
         home = {
           username = "simon";

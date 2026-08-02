@@ -33,6 +33,7 @@
         pdfannots2json
         ripgrep
         rsync
+        socat
         sxiv
         tesseract
         trash-cli
@@ -48,5 +49,9 @@
         xrdb
         zip
       ];
+
+      programs = {
+        gpu-screen-recorder.enable = true;
+      };
     };
 }

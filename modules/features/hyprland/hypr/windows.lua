@@ -50,3 +50,17 @@ hl.window_rule({
 -- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
 -- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
+
+-- Noctalia Settings
+hl.window_rule({
+  match = { class = "dev.noctalia.Noctalia" },
+  float = true,
+  size = { 1080, 920 },
+})
+---- Persistent workspaces ----
+hl.workspace_rule({ workspace = "1", monitor = "eDP-1", persistent = true })
+hl.workspace_rule({ workspace = "2", monitor = "eDP-1", persistent = true })
+hl.workspace_rule({ workspace = "3", monitor = "eDP-1", persistent = true })
+hl.workspace_rule({ workspace = "4", monitor = "eDP-1", persistent = true })
+hl.workspace_rule({ workspace = "5", monitor = "eDP-1", persistent = true })
+hl.workspace_rule({ workspace = "6", monitor = "eDP-1", persistent = true })
