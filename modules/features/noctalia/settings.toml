@@ -1,0 +1,185 @@
+config_version = 11
+
+[accessibility]
+ui_scale = 1.2000000104308128
+
+[bar.default]
+center = [ "workspaces" ]
+end = [ "tray", "notifications", "network", "battery", "group:g1", "clock", "control-center" ]
+margin_ends = 0
+padding = 8
+radius = 0
+start = [
+    "launcher",
+    "volume",
+    "brightness",
+    "keyboard_layout",
+    "bluetooth",
+    "wallpaper",
+    "hypr-submap",
+    "group:g2",
+    "media"
+]
+widget_spacing = 15
+
+    [bar.default.dead_zone.actions]
+    middle = "settings-open"
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g1"
+    members = [ "cpu", "temp", "ram", "sysmon" ]
+    opacity = 0.64999997615814209
+    padding = 6.0
+    widget_spacing = 5
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g2"
+    members = [ "screenshot", "recorder", "clipboard", "widget" ]
+    opacity = 0.64999997615814209
+    padding = 6.0
+
+[brightness]
+minimum_brightness = 0.099999997764825821
+
+[control_center]
+sidebar = "full"
+width = 820
+
+[desktop_widgets]
+enabled = false
+
+[idle]
+behavior_order = [ "screen-off", "lock", "lock-and-suspend" ]
+pre_action_fade_seconds = 10
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 300.0
+
+[location]
+address = "Tewkesbury, UK"
+
+[lockscreen]
+blur_intensity = 0.0
+tint_intensity = 0.0
+wallpaper = "/home/simon/.nixos/_assets/nix-wallpaper-binary-black.png"
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[plugins]
+enabled = [ "oldirtty/color_picker", "k4n4t4/hypr-submap", "noctalia/screen_recorder" ]
+
+[shell]
+corner_radius_scale = 0.30000000447034836
+
+    [shell.launcher]
+    categories = false
+
+    [shell.panel]
+    control_center_placement = "floating"
+    session_placement = "floating"
+    session_position = "center"
+
+[theme]
+builtin = "Catppuccin"
+
+    [theme.templates]
+    builtin_ids = [ "gtk3", "gtk4", "hyprland", "kcolorscheme", "qt" ]
+
+[wallpaper]
+directory = "/home/simon/.nixos/_assets"
+
+    [wallpaper.default]
+    path = "/home/simon/.nixos/_assets/nixos-wallpaper-catppuccin-mocha.png"
+
+    [wallpaper.last]
+    path = "/home/simon/.nixos/_assets/nixos-wallpaper-catppuccin-mocha.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/simon/.nixos/_assets/nixos-wallpaper-catppuccin-mocha.png"
+
+[widget.cpu]
+visualization = "none"
+
+[widget.hypr-submap]
+hide_when_default = true
+type = "k4n4t4/hypr-submap:hypr-submap"
+
+[widget.media]
+hide_when_no_media = true
+
+[widget.ram]
+visualization = "none"
+
+[widget.recorder]
+type = "noctalia/screen_recorder:recorder"
+
+[widget.sysmon]
+stat = "disk_used_pct"
+visualization = "none"
+
+[widget.temp]
+visualization = "none"
+
+[widget.widget]
+type = "oldirtty/color_picker:widget"
+
+[widget.workspaces]
+active_pill_size = 1.5
+empty_color = "on_surface"
+focused_color = "on_surface"
+occupied_color = "on_surface"
+pill_scale = 0.80000000000000004
+show_labels = false

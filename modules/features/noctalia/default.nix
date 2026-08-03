@@ -5,6 +5,7 @@
     ];
     programs.noctalia = {
       enable = true;
+      settings = ./settings.toml;
     };
   };
 }
