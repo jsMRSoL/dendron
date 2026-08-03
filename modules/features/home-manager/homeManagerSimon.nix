@@ -30,12 +30,12 @@
           self.homeModules.hyprland
           self.homeModules.languages
           self.homeModules.neovim
+          self.homeModules.noctalia
           self.homeModules.scripts
           self.homeModules.syncthing
           self.homeModules.theming
           self.homeModules.tmux
           self.homeModules.tmuxScripts
-          self.homeModules.waybar
           self.homeModules.whisper
           self.homeModules.yazi
         ];

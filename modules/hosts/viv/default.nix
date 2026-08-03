@@ -13,13 +13,6 @@
       self.nixosModules.wayland
       self.nixosModules.vivConfiguration
       self.nixosModules.homeManagerSimon
-      {
-        home-manager.users.simon = {
-          imports = [
-            self.homeModules.noctalia
-          ];
-        };
-      }
     ];
   };
 
