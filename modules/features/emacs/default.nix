@@ -23,8 +23,8 @@
 
       # use an absolute path. Otherwise link will point to subtree in nix store.
       home.file = {
-        ".emacs.d/early-init.el".source = link /home/simon/.nixos/modules/homeModules/emacs/early-init.el;
-        ".emacs.d/simacs.org".source = link /home/simon/.nixos/modules/homeModules/emacs/simacs.org;
+        ".emacs.d/early-init.el".source = link /home/simon/.nixos/modules/features/emacs/early-init.el;
+        ".emacs.d/simacs.org".source = link /home/simon/.nixos/modules/features/emacs/simacs.org;
       };
     };
 }
