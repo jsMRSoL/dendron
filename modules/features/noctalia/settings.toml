@@ -1,5 +1,3 @@
-config_version = 11
-
 [accessibility]
 ui_scale = 1.2000000104308128
 
@@ -42,7 +40,7 @@ widget_spacing = 15
     enabled = true
     fill = "surface_variant"
     id = "g2"
-    members = [ "screenshot", "recorder", "clipboard", "widget" ]
+    members = [ "screenshot", "recorder", "clipboard", "widget", "widget_2" ]
     opacity = 0.64999997615814209
     padding = 6.0
 
@@ -118,8 +116,17 @@ widget_order = [ "lockscreen-login-box@eDP-1" ]
         show_unlock_hint = true
         show_weather = true
 
+[plugin_settings."icefish/phone-connect"]
+enable_charging_animation = false
+panel_placement = "floating"
+
+[plugin_settings."thepunkoff/pomodoro"]
+panel_open_near_click = false
+panel_placement = "floating"
+panel_position = "center"
+
 [plugins]
-enabled = [ "oldirtty/color_picker", "k4n4t4/hypr-submap", "noctalia/screen_recorder" ]
+enabled = [ "oldirtty/color_picker", "k4n4t4/hypr-submap", "noctalia/screen_recorder", "thepunkoff/pomodoro" ]
 
 [shell]
 corner_radius_scale = 0.30000000447034836
@@ -175,6 +182,9 @@ visualization = "none"
 
 [widget.widget]
 type = "oldirtty/color_picker:widget"
+
+[widget.widget_2]
+type = "thepunkoff/pomodoro:widget"
 
 [widget.workspaces]
 active_pill_size = 1.5
