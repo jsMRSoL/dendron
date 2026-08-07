@@ -6,6 +6,9 @@
       clock24 = true;
       escapeTime = 0;
       extraConfig = ''
+        set -g allow-passthrough on
+        set -ga update-environment TERM
+        set -ga update-environment TERM_PROGRAM
         unbind C-b
         set -g prefix C-Space
         set -g status-position top

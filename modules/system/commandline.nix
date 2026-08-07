@@ -19,6 +19,7 @@
         htop
         imagemagick
         jq
+        kitty
         lazygit
         ledger
         libnotify

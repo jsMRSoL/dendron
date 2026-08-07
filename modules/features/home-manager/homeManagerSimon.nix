@@ -28,6 +28,7 @@
           self.homeModules.games
           self.homeModules.git
           self.homeModules.hyprland
+          self.homeModules.kitty
           self.homeModules.languages
           self.homeModules.neovim
           self.homeModules.noctalia

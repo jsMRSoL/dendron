@@ -24,7 +24,7 @@ local launch_bindings = {
   { mainMod .. "SHIFT + P",      menu_term },
   { mainMod .. "SHIFT + RETURN", terminal },
   { "CTRL + ALT + P",            "mypassmenu" },
-  { mainMod .. "F1",             "foot -e tmux-sessionizer.sh home &" },
+  { mainMod .. "F1",             "kitty -e tmux-sessionizer.sh home &" },
   { mainMod .. "F8",             "emacs &" },
 }
 
