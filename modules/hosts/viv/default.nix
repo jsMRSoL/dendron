@@ -36,6 +36,7 @@
     ];
 
     environment.systemPackages = [
+      pkgs.anki
       pkgs.brave
       pkgs.filezilla
       pkgs.gimp3
