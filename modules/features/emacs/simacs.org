@@ -338,7 +338,10 @@ To use benchmark-init, after startup run `benchmark-init/show-durations-tabulate
 * Text macros
 #+begin_src emacs-lisp
   (fset 'insert-line-and-paste-clipboard
-  	[?O escape ?m ?A ?\" ?* ?P ?0 ?\' ?A])
+        [?O escape ?m ?A ?\" ?* ?P ?0 ?\' ?A])
+
+  (defalias 'personise
+    (kmacro "A , I SPC <escape> j A , Y o u SPC ( s ) SPC <escape> j A , H e / s h e / i t SPC <escape> j A , W e SPC <escape> j A , Y o u SPC ( p l ) SPC <escape> j A , T h e y SPC <escape> 5 k"))
 #+end_src
 * Text functions
 #+begin_src emacs-lisp
@@ -466,7 +469,9 @@ To use benchmark-init, after startup run `benchmark-init/show-durations-tabulate
     :init
     (global-corfu-mode)
     :bind (:map corfu-map
-                ("C-c" . corfu-quit))
+                ("C-c" . corfu-quit)
+                ("RET" . nil)
+                ("C-y" . corfu-insert))
     :custom
     (corfu-auto t) ;; Enable auto-completion after typing
     (corfu-cycle t) ;; Enable cycling for completions
