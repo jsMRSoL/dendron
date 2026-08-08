@@ -661,13 +661,14 @@ To use benchmark-init, after startup run `benchmark-init/show-durations-tabulate
     "qq" '(evil-quit :which-key "quit")
     "qe" '(kill-emacs :which-key "kill emacs")
     "qr" '(restart-emacs :which-key "restart emacs")
-    "r" '(:ignore t :which-key "registers")
-    "rl" '(evil-show-registers :which-key "list")
-    "rs" '(consult-yank-pop :which-key "yank history/search")
-    "rp" '(insert-line-and-paste-clipboard :which-key "insert line paste")
-    "rL" '(consult-register :which-key "consult register")
-    "rS" '(consult-register-store :which-key "store register")
-    "rO" '(consult-register-load :which-key "load register")
+    "r" '(sp/open-current-dir-yazi-float :which-key "yazi")
+    "R" '(:ignore t :which-key "registers")
+    "Rl" '(evil-show-registers :which-key "list")
+    "Rs" '(consult-yank-pop :which-key "yank history/search")
+    "Rp" '(insert-line-and-paste-clipboard :which-key "insert line paste")
+    "RL" '(consult-register :which-key "consult register")
+    "RS" '(consult-register-store :which-key "store register")
+    "RO" '(consult-register-load :which-key "load register")
     "s" '(:ignore t :which-key "search")
     "so" '(occur :which-key "occur")
     "sf" '(sp/find-dired :which-key "find files (dired)")
@@ -834,7 +835,19 @@ To use benchmark-init, after startup run `benchmark-init/show-durations-tabulate
     (interactive "c[h]ome, [d]ocs, d[o]wnloads, [e]macs, o[r]g, dot[f]iles, .[n]ixos, [c]onfig, .[b]in, pro[j]ects")
     (dired-jump nil (alist-get char sp-common-dirs)))
 #+end_src
-
+* File management: Yazi
+#+begin_src emacs-lisp
+  (defun sp/open-current-dir-yazi-float ()
+    (interactive)
+    (let* ((lua
+            (format
+             "hl.dsp.exec_cmd(\"foot -e env EDITOR=\\\"emacsclient -n\\\" yazi %s\", { floating = true, size = {\"(monitor_w*0.8)\", \"(monitor_h*0.8)\"} })"
+             default-directory)))
+      (make-process
+       :name "yazi"
+       :command (list "hyprctl" "dispatch" lua)
+       :noquery t)))
+#+end_src
 * File & directory navigation
 #+begin_src emacs-lisp
   (defun sp/open-init ()
