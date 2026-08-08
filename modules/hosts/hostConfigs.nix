@@ -1,37 +1,37 @@
-{
-  flake.hostConfigs = {
-    pistol = {
-      termFontSize = "16";
-      keyboardType = "at-translated-set-2-keyboard";
-    };
+{ lib, ... }: {
+  options.flake.hostConfigs = lib.mkOption {
+    type = lib.types.attrsOf (
+      lib.types.submodule {
+        options = {
+          termFontSize = lib.mkOption {
+            type = lib.types.ints.positive;
+            default = 12;
+            description = "Terminal font size.";
+          };
 
-    rapier = {
-      termFontSize = "16";
-      keyboardType = "at-translated-set-2-keyboard";
-    };
+          keyboardType = lib.mkOption {
+            type = lib.types.str;
+            default = "at-translated-set-2-keyboard";
+            description = "Keyboard type.";
+          };
+        };
+      }
+    );
 
-    swing = {
-      termFontSize = "12";
-      keyboardType = "at-translated-set-2-keyboard";
-    };
+    default = { };
+  };
 
-    swingvm = {
-      termFontSize = "12";
-      keyboardType = "at-translated-set-2-keyboard";
-    };
-
-    nirivm = {
-      termFontSize = "12";
-      keyboardType = "at-translated-set-2-keyboard";
-    };
+  config.flake.hostConfigs = {
+    # these use the defaults
+    swingvm = { };
+    nirivm = { };
 
     viv = {
-      termFontSize = "16";
-      keyboardType = "at-translated-set-2-keyboard";
+      termFontSize = 16;
     };
 
     derek = {
-      termFontSize = "14";
+      termFontSize = 14;
       keyboardType = "usb-hid-keyboard";
     };
   };

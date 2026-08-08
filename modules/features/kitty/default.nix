@@ -4,7 +4,7 @@
     { osConfig, ... }:
     let
       currentSystem = osConfig.networking.hostName;
-      fontSize = builtins.fromJSON self.hostConfigs.${currentSystem}.termFontSize;
+      fontSize = self.hostConfigs.${currentSystem}.termFontSize;
     in
     {
       programs.kitty = {

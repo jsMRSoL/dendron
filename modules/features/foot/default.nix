@@ -4,7 +4,7 @@
     { osConfig, ... }:
     let
       currentSystem = osConfig.networking.hostName;
-      fontSize = self.hostConfigs.${currentSystem}.termFontSize;
+      fontSize = toString self.hostConfigs.${currentSystem}.termFontSize;
     in
     {
       programs.foot = {
