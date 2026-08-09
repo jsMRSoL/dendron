@@ -26,6 +26,11 @@ hl.window_rule({
 -- "Smart gaps" / "No gaps when only"
 hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0, no_border = true })
 hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0, no_border = true })
+hl.window_rule({
+  name = "floating-border",
+  match = { float = true },
+  border_size = 2,
+})
 ----- PERMISSIONS -----
 -- Please note permission changes here require a Hyprland restart and are not applied on-the-fly for security reasons
 
