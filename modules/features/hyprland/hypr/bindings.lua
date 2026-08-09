@@ -64,34 +64,20 @@ local layout_bindings = {
   { mainMod .. "F",         hl.dsp.window.float({ action = "toggle" }) },
   { mainMod .. "M",         hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }) },
   { mainMod .. "SHIFT + M", function()
-    hl.config({
-      general = {
-        layout = "monocle"
-      }
-    })
+    local ws = hl.get_active_workspace()
+    hl.workspace_rule({ workspace = tostring(ws.id), layout = "monocle" })
   end },
   { mainMod .. "T", function()
-    hl.config({
-      general = {
-        layout = "master",
-      }
-    })
-    hl.dispatch(hl.dsp.layout("orientationleft"))
+    local ws = hl.get_active_workspace()
+    hl.workspace_rule({ workspace = tostring(ws.id), layout = "master", layout_opts = { orientation = "left"} })
   end },
   { mainMod .. "U", function()
-    hl.config({
-      general = {
-        layout = "master",
-      }
-    })
-    hl.dispatch(hl.dsp.layout("orientationtop"))
+    local ws = hl.get_active_workspace()
+    hl.workspace_rule({ workspace = tostring(ws.id), layout = "master", layout_opts = { orientation = "top"} })
   end },
   { mainMod .. "SPACE", function()
-    hl.config({
-      general = {
-        layout = "master",
-      }
-    })
+    local ws = hl.get_active_workspace()
+    hl.workspace_rule({ workspace = tostring(ws.id), layout = "master"})
     hl.dispatch(hl.dsp.layout("orientationnext"))
   end },
 }
