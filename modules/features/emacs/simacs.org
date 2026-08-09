@@ -1907,6 +1907,7 @@ Clocking and other properties here: https://orgmode.org/manual/Template-elements
     "This is a simpler version of sp/open-with-tasks-and-agenda. It relies
      on there being a setting for Org Agenda in `display-buffer-alist.'"
     (interactive)
+    (server-start)
     (unless (seq-some #'buffer-file-name (buffer-list))
       (org-agenda-list)
       (evil-window-set-width 35)
