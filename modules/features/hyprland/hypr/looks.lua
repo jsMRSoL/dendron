@@ -35,6 +35,31 @@ hl.config({
     hide_on_key_press = true,
   },
 
+  group = {
+    col      = {
+      border_active   = "rgba(cba6f7ff)",
+      border_inactive = "rgba(595959aa)",
+    },
+    groupbar = {
+      enabled = true,
+      gradients = false,
+      height = 1,
+      text_offset = -13,
+      indicator_height = 25,
+      font_size = 11,
+      font_weight_active = "bold",
+      font_weight_inactive = "normal",
+
+      render_titles = true,
+      text_color = "rgba(cdd6f4ff)",
+
+      col = {
+        active = "rgba(1e1e2eff)",
+        inactive = "rgba(313244ff)",
+      },
+    },
+  },
+
   misc = {
     force_default_wallpaper = -1,
     disable_hyprland_logo   = true,
@@ -42,3 +67,7 @@ hl.config({
     mouse_move_enables_dpms = true,
   },
 })
+
+hl.animation({ leaf = "fadeSwitch", enabled = false })
+hl.animation({ leaf = "fadeIn", enabled = false })
+hl.animation({ leaf = "windowsIn", enabled = false })

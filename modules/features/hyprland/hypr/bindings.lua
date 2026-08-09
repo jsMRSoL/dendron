@@ -2,7 +2,6 @@
 local mainMod         = "SUPER + "
 local terminal        = "foot"
 -- local menu            = "wofi --insensitive --show drun"
--- local menu            = "noctalia msg panel-toggle launcher"
 local menu_term       = "foot -e wofi --insensitive --show run"
 local ipc             = "noctalia msg "
 
@@ -19,6 +18,7 @@ local launch_bindings = {
   { mainMod .. "P",              ipc .. "panel-toggle launcher" },
   { "ALT + TAB",                 ipc .. "window-switcher" },
   { mainMod .. "INSERT",         ipc .. "panel-toggle clipboard" },
+  { mainMod .. "V",              ipc .. "panel-toggle clipboard" },
   { "SHIFT + F10",               ipc .. "screenshot-fullscreen" },
   { "SHIFT + ALT + F10",         ipc .. "screenshot-region" },
   { mainMod .. "SHIFT + P",      menu_term },
@@ -55,15 +55,16 @@ local layout_bindings = {
   { mainMod .. "I", function()
     hl.dispatch(hl.dsp.layout("addmaster"))
   end },
-  { mainMod .. "D", function()
+  { mainMod .. "SHIFT+ I", function()
     hl.dispatch(hl.dsp.layout("removemaster"))
   end },
-  { mainMod .. "SHIFT + T", hl.dsp.group.toggle() },
+  { mainMod .. "G",         hl.dsp.group.toggle() },
+  { mainMod .. "SHIFT + G", hl.dsp.window.move({ out_of_group = true }) },
   { mainMod .. "N",         hl.dsp.group.next() },
   { mainMod .. "SHIFT + N", hl.dsp.group.prev() },
   { mainMod .. "F",         hl.dsp.window.float({ action = "toggle" }) },
-  { mainMod .. "M",         hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }) },
-  { mainMod .. "SHIFT + M", function()
+  { mainMod .. "SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }) },
+  { mainMod .. "M", function()
     local ws = hl.get_active_workspace()
     hl.workspace_rule({ workspace = tostring(ws.id), layout = "monocle" })
   end },
@@ -75,12 +76,7 @@ local layout_bindings = {
     local ws = hl.get_active_workspace()
     hl.workspace_rule({ workspace = tostring(ws.id), layout = "master", layout_opts = { orientation = "top" } })
   end },
-  { mainMod .. "SHIFT + SPACE", hl.dsp.exec_cmd("layout-switcher.sh") },
-  { mainMod .. "SPACE", function()
-    local ws = hl.get_active_workspace()
-    hl.workspace_rule({ workspace = tostring(ws.id), layout = "master" })
-    hl.dispatch(hl.dsp.layout("orientationnext"))
-  end },
+  { mainMod .. "SPACE", hl.dsp.exec_cmd("layout-switcher.sh") },
 }
 
 for _, binding in ipairs(layout_bindings) do
