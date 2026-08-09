@@ -5,6 +5,7 @@
       ./_sxiv-handler.nix
       ./_ocrscripts.nix
       ./_deps2nix.nix
+      ./_layout-switcher.nix
     ];
   };
 }

@@ -69,15 +69,16 @@ local layout_bindings = {
   end },
   { mainMod .. "T", function()
     local ws = hl.get_active_workspace()
-    hl.workspace_rule({ workspace = tostring(ws.id), layout = "master", layout_opts = { orientation = "left"} })
+    hl.workspace_rule({ workspace = tostring(ws.id), layout = "master", layout_opts = { orientation = "left" } })
   end },
   { mainMod .. "U", function()
     local ws = hl.get_active_workspace()
-    hl.workspace_rule({ workspace = tostring(ws.id), layout = "master", layout_opts = { orientation = "top"} })
+    hl.workspace_rule({ workspace = tostring(ws.id), layout = "master", layout_opts = { orientation = "top" } })
   end },
+  { mainMod .. "SHIFT + SPACE", hl.dsp.exec_cmd("layout-switcher.sh") },
   { mainMod .. "SPACE", function()
     local ws = hl.get_active_workspace()
-    hl.workspace_rule({ workspace = tostring(ws.id), layout = "master"})
+    hl.workspace_rule({ workspace = tostring(ws.id), layout = "master" })
     hl.dispatch(hl.dsp.layout("orientationnext"))
   end },
 }
