@@ -17,12 +17,13 @@ let
         hyprctl eval "hl.workspace_rule({ workspace = $ws,  layout = \"$1\"})"
       }
 
-      layout="$(printf '%s\n' 'master (left)' 'master (right)' 'master (top)' 'master (bottom)' 'monocle' 'scrolling' | noctalia dmenu -p 'Pick layout')"
+      layout="$(printf '%s\n' 'master (left)' 'master (right)' 'master (top)' 'master (centre)' 'master (bottom)' 'monocle' 'scrolling' | noctalia dmenu -p 'Pick layout')"
 
       case $layout in
         'master (left)') set_master "left" ;;
         'master (right)') set_master "right" ;;
         'master (top)') set_master "top" ;;
+        'master (centre)') set_master "center" ;;
         'master (bottom)') set_master "bottom" ;;
         monocle | scrolling) set_layout "$layout" ;;
         *) notify-send "layout switcher" "No action taken" ;;
