@@ -14,6 +14,11 @@
       self.nixosModules.wayland
       self.nixosModules.derekConfiguration
       self.nixosModules.homeManagerSimon
+      {
+        home-manager.users.simon.home.sessionVariables = {
+          WGPU_ADAPTER_NAME = "AMD Radeon RX 7800 XT (RADV NAVI32)";
+        };
+      }
     ];
   };
 
