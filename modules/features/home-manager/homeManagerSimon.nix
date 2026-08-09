@@ -22,7 +22,6 @@
           self.homeModules.atuin
           self.homeModules.bash
           self.homeModules.clipboard
-          self.homeModules.dunst
           self.homeModules.emacs
           self.homeModules.foot
           self.homeModules.games
