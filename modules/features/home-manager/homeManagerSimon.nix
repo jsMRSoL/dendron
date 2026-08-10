@@ -36,6 +36,7 @@
           self.homeModules.theming
           self.homeModules.tmux
           self.homeModules.tmuxScripts
+          self.homeModules.udiskie
           self.homeModules.whisper
           self.homeModules.yazi
         ];
