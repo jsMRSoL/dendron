@@ -11,6 +11,7 @@
       self.nixosModules.sddm
       self.nixosModules.sound
       self.nixosModules.systemdBoot
+      self.nixosModules.udisks2
       self.nixosModules.wayland
       self.nixosModules.derekConfiguration
       self.nixosModules.homeManagerSimon

@@ -1,3 +1,4 @@
+{ self, ... }:
 {
   flake.homeModules.udiskie = { pkgs, ... }: {
     home.packages = [
