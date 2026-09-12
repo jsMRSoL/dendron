@@ -83,7 +83,7 @@
         nurl # cli tool to generate nix fetcher calls
         pass
         pciutils
-        pinentry-gtk2
+        pinentry-gnome3
         procps
         tree
         wget
